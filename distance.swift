@@ -51,7 +51,6 @@ while n <= 99999 {
         total_score += score1
         assert(score1 == score2)
         N += 2
-        // print(score1, a, b)
     }
     test("", s)
     for i in s.indices {

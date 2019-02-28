@@ -5,6 +5,9 @@ Best times in seconds. So far, smaller is better:
     3. Python iPad   479.8
     4. C               8.0
     5. C++            30.4
+    6. Swift         568.0
+    7. C#
+    7. Java
 
 # Python
 # @ iMac, Intel Core i5, 3.2 GHz
@@ -52,3 +55,6 @@ Darwin-18.2.0-x86_64-i386-64bit
 Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
 Executing in 64bit
 675.6264,1332108,12000,0.000563022
+
+Swift 4.2
+568.0267419815063,139880640,1200000,0.00047335561831792194
