@@ -1,0 +1,54 @@
+Best times in seconds. So far, smaller is better:
+
+    1. Python iMac   344.5
+    2. Python iPhone 604.9
+    3. Python iPad   479.8
+    4. C               8.0
+    5. C++            30.4
+
+# Python
+# @ iMac, Intel Core i5, 3.2 GHz
+#           Time sec,total_score,calls,Time per call (sec)
+#  Python 3.5: 501.1,139880640,1200000,0.000417602
+#  (with score = sum([penalty(c) for c in str1 + str2]))
+#              372.1,139880640,   -   ,0.000310051 (score = float('inf'))
+#              344.5,    -    ,   -   ,0.000287047 (score = 2147483647)
+#   dummy        2.3,157500000,   -   ,0.000001952 (no distance1() calls)
+#  Python 3.7: 934.2,    -    ,   -   ,0.000778530
+#  Python 2.7: 478.7,    -    ,   -   ,0.000398887
+
+/* C
+/  Old plain, almost C code. May be just keyword 'const' from C++.
+/  Compiled and tested with iMac Xcode 10.1 C:
+/                 8.047232,139880640,1200000,6.706027e-06
+*/ Faster then Python 3.5 in 43 times = (344 sec/ 8 sec)
+
+// C++
+// @ iMac Xcode 10.1, Intel Core i5,3.2 GHz
+// C++ 30.3629,139880640,1200000,2.53024e-05
+//      0.1578,157500000,1200000,1.31499e-07 with dummy calls
+
+Alexanders-iPhone: 604.9031600000001,139880640,1200000,0.0005040859666666668
+Alexanders-iPad:   479.822409,139880640,1200000,0.0003998520075
+Pythonista
+macOS version 12.1.4
+Darwin-18.2.0-iPhone8,2-64bit
+Python ('default', 'Aug 24 2017 16:20:00')
+         GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)
+Executing in 64bit
+
+
+macOS version 12.1.4
+Darwin-18.2.0-iPad6,7-64bit
+Python ('default', 'Aug 24 2017 16:20:00')
+GCC 4.2.1 Compatible Apple LLVM 8.1.0 (clang-802.0.42)
+Executing in 64bit
+
+Feb 28, 2019; Switch to the latest Python 3.7 installed; Test now distance2.py:
+
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
+Executing in 64bit
+675.6264,1332108,12000,0.000563022
