@@ -1,5 +1,7 @@
 # Copyright (c) 2019 Alexander Lopatin. All rights reserved.
 import time
+import platform
+import sys
 
 
 def penalty(char): return ord(char)
@@ -17,6 +19,14 @@ def distance1(str1, str2):  # Algorithm #1 (Reference): Brute force.
 
 
 if __name__ == '__main__':
+    print(platform.node())
+    (mac_ver, _, _) = platform.mac_ver()
+    if mac_ver is not None and mac_ver != "":
+        print("macOS version", mac_ver)
+    print(platform.platform())
+    print("Python", platform.python_build(), platform.python_compiler())
+    print("Executing in", "64bit" if sys.maxsize > 2 ** 32 else "32bit")
+
     assert(distance1("at", "cat") == penalty('c'))
     assert(distance1("bat", "cat") == penalty('b') + penalty('c'))
     assert(distance1("!~!", "~!!")) == 2 * penalty('!')  # ! vs ~ (33 vs 126)
