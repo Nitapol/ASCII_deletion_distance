@@ -5,10 +5,9 @@
 using namespace std;
 #include <string>
 
-int penalty(const char& character) { return character; }
+int penalty(const char& c) { return c; }
 
 string& skip_char(string &dst, const string &src, int skip) {
-// Shorter "dst=src.substr(0,skip)+src.substr(skip+1);" but it will add 7 sec.
     dst.clear();
     for (int i = 0; i < src.size(); i++)
         if (i != skip)
@@ -16,18 +15,18 @@ string& skip_char(string &dst, const string &src, int skip) {
     return dst;
 }
 
-int distance1(const string &s1, const string &s2) {
-    size_t l1 = s1.size();
-    size_t l2 = s2.size();
-    if (l1 == l2 && s1 == s2)
+int distance1(const string &a, const string &b) {
+    size_t la = a.size();
+    size_t lb = b.size();
+    if (la == lb && a == b)
         return 0;
-    int score = __INT_MAX__;
+    int d = __INT_MAX__;
     string s;
-    for (int i = 0; i < l1; i++)
-        score = min(score, penalty(s1[i]) + distance1(skip_char(s, s1, i), s2));
-    for (int i = 0; i < l2; i++)
-        score = min(score, penalty(s2[i]) + distance1(s1, skip_char(s, s2, i)));
-    return score;
+    for (int i = 0; i < la; i++)
+        d = min(d, penalty(a[i]) + distance1(skip_char(s, a, i), b));
+    for (int i = 0; i < lb; i++)
+        d = min(d, penalty(b[i]) + distance1(a, skip_char(s, b, i)));
+    return d;
 }
 
 #define LOOP 99999
@@ -39,22 +38,22 @@ int main() {
     assert(distance1("!~!", "~!!") == 2 * penalty('!'));
     assert(distance1("!!~", "!~!") == 2 * penalty('!'));
     clock_t start = clock();
-    int n = 0, N = 0, total_score = 0;
+    int n = 0, N = 0, d = 0;
     do {
         stringstream ss;
         ss << std::setw(LEN) << std::setfill('0') << n;
         string s = ss.str();
         for (int i = 0; i < LEN + 1; i++) {
-            string s1 = s.substr(0, i);
-            string s2 = s.substr(i);
-            int score1 = distance1(s1, s2);
-            int score2 = distance1(s2, s1);
-            assert(score1 == score2);
-            total_score += score1;
+            string a = s.substr(0, i);
+            string b = s.substr(i);
+            int d1 = distance1(a, b);
+            int d2 = distance1(b, a);
+            assert(d1 == d2);
+            d += d1;
             N += 2;
          }
     } while (n++ < LOOP);
     double t = (clock() - start) / (double) CLOCKS_PER_SEC;
-    cout << t << "," << total_score << "," << N << "," << t/N << endl;
+    cout << t << "," << d << "," << N << "," << t/N << endl;
     return 0;
 }
