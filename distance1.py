@@ -27,10 +27,10 @@ if __name__ == '__main__':
     print("Python", platform.python_build(), platform.python_compiler())
     print("Executing in", "64bit" if sys.maxsize > 2 ** 32 else "32bit")
 
-    assert(distance1("at", "cat") == penalty('c'))
-    assert(distance1("bat", "cat") == penalty('b') + penalty('c'))
-    assert(distance1("!~!", "~!!")) == 2 * penalty('!')  # ! vs ~ (33 vs 126)
-    assert(distance1("!!~", "!~!")) == 2 * penalty('!')  #
+    assert distance1("at", "cat") == penalty('c')
+    assert distance1("bat", "cat") == penalty('b') + penalty('c')
+    assert distance1("!~!", "~!!") == 2 * penalty('!')  # ! vs ~ (33 vs 126)
+    assert distance1("!!~", "!~!") == 2 * penalty('!')
     t = time.process_time()
     n = 0
     N = 0
