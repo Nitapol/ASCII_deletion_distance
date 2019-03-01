@@ -5,9 +5,9 @@ Best times in seconds. So far, smaller is better:
     3. Python iPad   479.8
     4. C               8.0
     5. C++            30.4
-    6. Swift         568.0
+    6. Swift          50.6
     7. C#             30.1
-    8. Java
+    8. Java           12.5
 
 # Python
 # @ iMac, Intel Core i5, 3.2 GHz
@@ -56,11 +56,20 @@ Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
 Executing in 64bit
 675.6264,1332108,12000,0.000563022
 
-Swift 4.2
+Swift 4.2 Debug
 568.0267419815063,139880640,1200000,0.00047335561831792194
 
 C# Release x86_64
 Visual Studio Community 2017 for Mac Version 7.8.2, Xamarin (Mac & iOS)
 30.1362921,139880640,1200000,2.511357675E-05
 
+Swift 4.2 Release
+50.62082898616791,139880640,1200000,4.2184024155139926e-05
+
+javac distance1.java
+java distance1
+Java version "1.8.0_131"
+Java(TM) SE Runtime Environment (build 1.8.0_131-b11)
+Java HotSpot(TM) 64-Bit Server VM (build 25.131-b11, mixed mode)
+12.533967366,139880640,1200000,1.0444972805E-5
 
