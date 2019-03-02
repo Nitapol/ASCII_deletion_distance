@@ -20,6 +20,7 @@ def penalty(char): return ord(char)
 # 675.63 1+1
 
 def distance1(str1, str2):  # Algorithm #1 (Reference): Brute force.
+    print("+", str1, str2)
     if str1 == str2:
         return 0
     score = sys.maxsize  # Enough for the sum of 3.62e+7 Gigabytes in 64bit.
@@ -27,6 +28,7 @@ def distance1(str1, str2):  # Algorithm #1 (Reference): Brute force.
         score = min(score, penalty(c) + distance1(str1[:j]+str1[j+1:], str2))
     for j, c in enumerate(str2):
         score = min(score, penalty(c) + distance1(str1, str2[:j]+str2[j+1:]))
+    print("-", str1, str2, score)
     return score
 
 # Algorithm #2: Remove char and call the recursion only if length >=
@@ -165,6 +167,9 @@ def distance5(string1, string2):
 
 
 if __name__ == '__main__':
+    assert(distance1("at", "cat") == penalty('c'))
+    exit(1)
+
     print(platform.node())
     (mac_ver, _, _) = platform.mac_ver()
     if mac_ver is not None and mac_ver != "":
