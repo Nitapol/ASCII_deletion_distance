@@ -4,7 +4,7 @@ Best times in seconds. So far, smaller is better:
     2. Python iPhone 604.9
     3. Python iPad   479.8
     4. C               8.0
-    5. C++            30.0
+    5. C++             4.7
     6. Swift          46.7
     7. C#             30.1
     8. Java           12.5
@@ -131,3 +131,26 @@ Objective-C
 6.869905e+01,139880640,1200000,5.724921e-05
 Running in Objective-C mode...(use no arguments for C mode)
 5.068806e+01,139880640,1200000,4.224005e-05 Release
+
+C++
+4.65078,139880640,1200000,3.87565e-06 Release
+string& skip_char(string &dst, const string &src, int skip) {
+    dst.clear();
+    for (int i = 0; i < src.size(); i++)
+        if (i != skip)
+            dst += src[i];
+    return dst;
+}
+
+// Shorter, but it will add 7 sec.
+string& skip_char(string &dst, const string &src, int skip) {
+    dst=src.substr(0,skip)+src.substr(skip+1);
+    return dst;
+}
+11.0014,139880640,1200000,9.16781e-06
+
+    for (int i = 0; i < la; i++)
+        d = min(d, fee(a[i]) + distance1(string(a.substr(0,i)+a.substr(i+1)), b));
+    for (int i = 0; i < lb; i++)
+        d = min(d, fee(b[i]) + distance1(a, string(b.substr(0,i)+b.substr(i+1))));
+8.83833,139880640,1200000,7.36527e-06
