@@ -4,7 +4,7 @@ import platform
 import sys
 
 
-def penalty(char): return ord(char)
+def fee(char): return ord(char)
 
 # Loop 999 total 1332108
 # 6.63 1+1
@@ -19,16 +19,14 @@ def penalty(char): return ord(char)
 # 408.19 2+2
 # 675.63 1+1
 
-def distance1(str1, str2):  # Algorithm #1 (Reference): Brute force.
-    print("+", str1, str2)
-    if str1 == str2:
+def distance1(a, b):  # Algorithm #1 (Reference): Brute force.
+    if a == b:
         return 0
     score = sys.maxsize  # Enough for the sum of 3.62e+7 Gigabytes in 64bit.
-    for j, c in enumerate(str1):
-        score = min(score, penalty(c) + distance1(str1[:j]+str1[j+1:], str2))
-    for j, c in enumerate(str2):
-        score = min(score, penalty(c) + distance1(str1, str2[:j]+str2[j+1:]))
-    print("-", str1, str2, score)
+    for j, c in enumerate(a):
+        score = min(score, fee(c) + distance1(a[:j]+a[j+1:], b))
+    for j, c in enumerate(b):
+        score = min(score, fee(c) + distance1(a, b[:j]+b[j+1:]))
     return score
 
 # Algorithm #2: Remove char and call the recursion only if length >=
@@ -45,14 +43,14 @@ def distance2(r1, r2):
     if l1 >= l2:
         j = 0
         while True:
-            d = min(d, penalty(r1[j]) + distance2(r1[:j]+r1[j+1:], r2))
+            d = min(d, fee(r1[j]) + distance2(r1[:j]+r1[j+1:], r2))
             if j == l1:
                 break
             j += 1
     if l2 >= l1:
         j = 0
         while True:
-            d = min(d, penalty(r2[j]) + distance2(r1, r2[:j]+r2[j+1:]))
+            d = min(d, fee(r2[j]) + distance2(r1, r2[:j]+r2[j+1:]))
             if j == l2:
                 break
             j += 1
@@ -65,14 +63,13 @@ def distance3_(t1, t2, current, best):
     if t1 == t2:
         return current
     for i1, c1 in enumerate(t1):
-        n1 = penalty(c1) + current
+        n1 = fee(c1) + current
         if n1 < best:
             best = min(best, distance3_(t1[:i1] + t1[i1+1:], t2, n1, best))
     for i2, c2 in enumerate(t2):
-        n2 = penalty(c2) + current
+        n2 = fee(c2) + current
         if n2 < best:
             best = min(best, distance3_(t1, t2[:i2] + t2[i2+1:], n2, best))
-    #  print(best, t1, t2)
     return best
 
 
@@ -95,24 +92,24 @@ def distance4_(string1, string2, current, best):
         if intersection.issuperset(c):
             string += c
         else:
-            current += penalty(c)
+            current += fee(c)
     string1 = string
     string = ""
     for c in string2:
         if intersection.issuperset(c):
             string += c
         else:
-            current += penalty(c)
+            current += fee(c)
     string2 = string
     if string1 == string2:
         return current
     for i1, c1 in enumerate(string1):
-        n1 = penalty(c1) + current
+        n1 = fee(c1) + current
         if n1 < best:
             best = min(best, distance4_(
                 string1[:i1] + string1[i1+1:], string2, n1, best))
     for i2, c2 in enumerate(string2):
-        n2 = penalty(c2) + current
+        n2 = fee(c2) + current
         if n2 < best:
             best = min(best, distance4_(
                 string1, string2[:i2] + string2[i2+1:], n2, best))
@@ -143,19 +140,19 @@ def distance5_(string1, string2, current, best):
                 out += c
             else:
                 nonlocal current
-                current += penalty(c)
+                current += fee(c)
         return out
     string1 = remove_unique(string1)
     string2 = remove_unique(string2)
     if string1 == string2:
         return current
     for i1, c1 in enumerate(string1):
-        n1 = penalty(c1) + current
+        n1 = fee(c1) + current
         if n1 < best:
             best = min(best, distance5_(
                 string1[:i1] + string1[i1+1:], string2, n1, best))
     for i2, c2 in enumerate(string2):
-        n2 = penalty(c2) + current
+        n2 = fee(c2) + current
         if n2 < best:
             best = min(best, distance5_(
                 string1, string2[:i2] + string2[i2+1:], n2, best))
@@ -167,7 +164,7 @@ def distance5(string1, string2):
 
 
 if __name__ == '__main__':
-    assert(distance1("at", "cat") == penalty('c'))
+    assert(distance1("at", "cat") == fee('c'))
     exit(1)
 
     print(platform.node())
@@ -178,10 +175,10 @@ if __name__ == '__main__':
     print("Python", platform.python_build(), platform.python_compiler())
     print("Executing in", "64bit" if sys.maxsize > 2 ** 32 else "32bit")
 
-    assert(distance1("at", "cat") == penalty('c'))
-    assert(distance1("bat", "cat") == penalty('b') + penalty('c'))
-    assert(distance1("!~!", "~!!")) == 2 * penalty('!')  # ! vs ~ (33 vs 126)
-    assert(distance1("!!~", "!~!")) == 2 * penalty('!')  #
+    assert(distance1("at", "cat") == fee('c'))
+    assert(distance1("bat", "cat") == fee('b') + fee('c'))
+    assert(distance1("!~!", "~!!")) == 2 * fee('!')  # ! vs ~ (33 vs 126)
+    assert(distance1("!!~", "!~!")) == 2 * fee('!')  #
 
     t = time.process_time()
     n = 0

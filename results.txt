@@ -3,6 +3,8 @@ Best times in seconds. So far, smaller is better:
     1. Python iMac   344.5
     2. Python iPhone 604.9
     3. Python iPad   479.8
+    +  Python C        9.2  
+    +  Python C mulipr 2.5
     4. C               4.4
     5. C++             4.7
     6. Swift           7.5
@@ -10,6 +12,10 @@ Best times in seconds. So far, smaller is better:
     8. Java           12.5
     9. Objective-C    50.7
    10. Objective-C(C)  4.5
+
+                       1.77 distance1c.c called in 4 threat distance1mpC.py
+03/15 new speed record
+   by distance8(in C)  0.056
 
 # Python
 # @ iMac, Intel Core i5, 3.2 GHz
@@ -158,7 +164,7 @@ string& skip_char(string &dst, const string &src, int skip) {
 C
 4.428192,139880640,1200000,0.000004 XCode Release
 7.720195,139880640,1200000,0.000006 G++ -o d distance1.c
-4.434721,139880640,1200000,0.000004 G++ -Os -o d distance1.c
+    4.434721,139880640,1200000,0.000004 G++ -Os -o d distance1.c
 
 ### Mar 2, 2019 ################################################################
 C# Visual Studio (Release) Run... Start Without Debugging
@@ -168,3 +174,160 @@ Swift with array instead String
 8.059293031692505,139880640,1200000,6.7160775264104205e-06  [UInt32]
 7.953811049461365,139880640,1200000,6.628175874551137e-06   [Int]
 7.466094970703125,139880640,1200000,6.221745808919271e-06   [UInt8]
+
+Python 3.7 with arrays
+734.9152939999999,139880640,1200000,0.0006124294116666666
+
+
+### Mar 4, 2019 ################################################################
+
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
+Executing in 64bit
+Ver 1      CPU time: 26.613799999999998 Wall clock: 13.365134261 Statistics:
+           [4178400, 4178400, 2232000, 744000, 187500, 37500] 11557800 2.30-06
+Ver 1 vs 2 CPU time: 20.625733999999998 Wall clock: 10.423040093 Statistics:
+           [2089200, 2089200, 1116000, 372000, 93750, 18750]
+           [1225200, 1225200, 669000, 272000, 75000, 18750] 9264050    2.23-06
+Ver 2 vs 2  CPU time: 14.221428000000001 Wall clock: 7.177799021999999 Statistics:
+           [2450400, 2450400, 1338000, 544000, 150000, 37500] 6970300  2.04-06
+           CPU time: 13.733396 Wall clock: 6.939341939 Statistics:[2450400, 2450400, 1338000, 544000, 150000, 37500] 6970300 1.970273302440354e-06
+Ver 2 vs 3 CPU time: 15.594880000000002 Wall clock: 7.890381231999999 Statistics:
+         [1225200, 1225200, 669000, 272000, 75000, 18750]
+          [18000, 1490956, 869138, 351648, 92768, 18750] 6326410 2.465044156164397e-06
+
+Ver 3 vs 3 CPU time: 17.171568 Wall clock: 8.678905711 Statistics:
+          [36000, 2981912, 1738276, 703296, 185536, 37500] 5682520 3.021822712458557e-06
+
+Ver 3 vs 4 CPU time: 8.78242 Wall clock: 4.413656797000001 Statistics:
+         [18000, 1490956, 869138, 351648, 92768, 18750]
+         [0, 0, 0, 0, 0, 0] 2841260 3.091030035969957e-06
+
+         CPU time: 8.788012 Wall clock: 4.44376895 Statistics:
+         [18000, 1490956, 869138, 351648, 92768, 18750]
+         [0, 0, 3845, 3036, 968, 18750] 2867859 3.064311041791106e-06
+
+Ver 4 vs 4
+         CPU time: 0.31339200000000006 Wall clock: 0.15740862299999997 Statistics:
+         [0, 0, 7690, 6072, 1936, 37500] 53198 5.891048535659237e-06
+
+
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python ('v3.5.1:37a07cee5969', 'Dec  5 2015 21:12:44') GCC 4.2.1 (Apple Inc. build 5666) (dot 3)
+Executing in 64bit
+CPU time: 0.164956 Wall clock: 0.16520127300100285 Statistics:[0, 0, 7690, 6072, 1936, 37500] 53198 3.10079326290462e-06
+CPU time: 4.015154999999999 Wall clock: 4.028119959999458
+4.015154999999999,139880640,1200000,3.3459624999999993e-06
+
+
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python 2.55`
+Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
+Executing in 64bit
+CPU time: 0.305772 Wall clock: 0.155264239 Statistics:[0, 0, 7690, 6072, 1936, 37500] 53198 5.747810068047671e-06
+CPU time: 7.754167999999999 Wall clock: 3.914512334
+7.754167999999999,139880640,1200000,6.461806666666666e-06
+
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python ('default', 'Aug 17 2018 19:45:58') GCC 4.2.1 Compatible Apple LLVM 10.0.0 (clang-1000.0.42)
+Executing in 64bit
+CPU time: 0:00:00.186242 Statistics:
+[0, 0, 7690, 6072, 1936, 37500] 53198 0:00:00.000003
+0:00:04.818428,139880640,1200000,0:00:00.000004
+Alexanders-iMac:ASCII_deletion_distance alex$
+
+### Mar 4, 2019 ################################################################
+Alexanders-iMac
+macOS version 10.14.3
+Darwin-18.2.0-x86_64-i386-64bit
+Python ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43') Clang 6.0 (clang-600.0.57)
+Executing in 64bit
+CPU time: 20.348451999999998 Wall clock: 10.211998623 Statistics:
+[2089200, 2089200, 1116000, 372000, 93750, 18750]
+[1225200, 1225200, 669000, 272000, 75000, 18750] 9264050
+ 2.1964963487891365e-06 1.1023255080661266e-06
+
+### Starting Multiprocessing
+0: This Process ran 8.385866834 seconds in the distance is 750:
+Parent: this Process ran 8.391650258 seconds
+CPU Time: 16.696556 Wall Clock: 8.391662845
+
+Python version : 3.8.0a2+
+       build   : ('heads/master:a9df651eb4', 'Mar  5 2019 16:51:46')
+       compiler: Clang 10.0.0 (clang-1000.11.45.5)
+CPU Time: 44.736729000000004 Wall Clock: 44.828054579  Distance: 750
+
+### Mar 7, 2019 ################################################################
+
+lexanders-iMac:cpython alex$ time python3.5 ~/PycharmProjects/ASCII_deletion_distance/distance1mp.py
+92.442129
+92.513375
+92.485668
+93.218232
+97.294208,139880640,1200000,0.000081,3.809676
+
+real	1m37.663s
+user	6m10.424s
+sys	0m0.499s
+Alexanders-iMac:cpython alex$ time python3.7 ~/PycharmProjects/ASCII_deletion_distance/distance1mp.py
+179.260012
+179.280842
+179.726404
+182.228230
+94.341652,139880640,1200000,0.000079,7.637088
+
+real	1m34.626s
+user	6m0.422s
+sys	0m0.398s
+Alexanders-iMac:cpython alex$ time python3.8 ~/PycharmProjects/ASCII_deletion_distance/distance1mp.py
+177.504696
+177.814596
+178.479052
+178.943454
+93.083215,139880640,1200000,0.000078,7.657039
+
+real	1m33.343s
+user	5m56.548s
+sys	0m0.424s
+Alexanders-iMac:cpython alex$
+
+### Mar 8, 2019 ################################################################
+
+$ python3.8 distance1mp.py
+178.841552
+178.911696
+178.907678
+180.114706
+90.252371,139880640,1200000,0.000075,7.941904
+
+### Mar 11, 2019 ###############################################################
+Python version  : 3.7.2
+       build    : ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43')
+       compiler : Clang 6.0 (clang-600.0.57)
+9.238727472,139880640,1200000,7.69893956e-06,9.233804000000001,distance1C
+
+Python version  : 3.8.0a2
+       build    : ('v3.8.0a2:23f4589b4b', 'Feb 25 2019 10:59:08')
+       compiler : Clang 6.0 (clang-600.0.57)
+5.048500
+5.050484
+5.048436
+5.042470
+2.549815,139880640,1200000,0.000002,7.918178
+
+Python version  : 3.7.2
+       build    : ('v3.7.2:9a3ffc0492', 'Dec 24 2018 02:44:43')
+       compiler : Clang 6.0 (clang-600.0.57)
+5.012688
+5.015966
+5.010390
+5.017052
+2.532805,139880640,1200000,0.000002,7.918531
